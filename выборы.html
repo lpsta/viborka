@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выборы президента</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .logo-line {
+            width: 100%;
+            background-color: #f0f0f0; /* Цвет фона для линии с логотипом */
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            margin-right: 20px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background: linear-gradient(to right, #1E90FF, #87CEFA);
+            padding: 10px;
+            color: white;
+        }
+        .main-content {
+            margin: 20px;
+            text-align: center;
+            flex-grow: 1; /* Позволяет основному контенту занимать оставшееся пространство */
+        }
+        .candidate {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+        .candidate:hover {
+            cursor: pointer;
+        }
+        .candidate1:hover { background-color: rgba(255, 0, 0, 0.3); }
+        .candidate2:hover { background-color: rgba(0, 0, 255, 0.3); }
+        .candidate3:hover { background-color: rgba(255, 255, 0, 0.3); }
+        .candidate4:hover { background-color: rgba(0, 128, 0, 0.3); }
+        .candidate5:hover { background-color: rgba(128, 0, 128, 0.3); }
+        .vote-button {
+            background-color: #1E90FF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .vote-message {
+            display: none;
+            color: green;
+            margin-top: 10px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+<div class="logo-line">
+    <img src="https://imgur.com/7KDOrY8.png" alt="Логотип" class="logo" width="50">
+</div>
+
+<div class="header">
+    <div>
+        <h2>Выборы 1-го президента Телеграм канала "Лопстер"</h2>
+        <p style="font-size: 12px;">выберите одного из предложенных кандидатов</p>
+    </div>
+</div>
+
+<div class="main-content">
+    <h3><strong>Поставьте галочку в окне выбранного вами кандидата</strong></h3>
+
+    <div class="candidate candidate1">
+        <img src="https://i.imgur.com/vabBETK.png" alt="Кандидат 1" width="150">
+        <h4>Лопстер Гмович Нижнееподчеркивание</h4>
+        <p style="font-size: 14px;">Первый лобстер президент. Самовыдвиженец, не политический деятель, пупов пинатель, не имеет никаких навыков.</p>
+        <input type="radio" name="candidate" id="vote1" onclick="selectCandidate('1')">
+                <button class="vote-button" onclick="submitVote()">Проголосовать за Лопстера</button>
+        <p class="vote-message" id="message1">Проголосовано успешно!</p>
+    </div>
+
+    <div class="candidate candidate2">
+        <img src="https://i.imgur.com/I4xl8kt.png" alt="Кандидат 2" width="150">
+        <h4>Пупсиков Ренат Пупстерович</h4>
+        <p style="font-size: 14px;">Российский государственный и политический мяудетель, мяуприниматель, мяуллиардер, 45 пиво за час. Партия котиков</p>
+        <input type="radio" name="candidate" id="vote2" onclick="selectCandidate('2')">
+        <button class="vote-button" onclick="submitVote()">Проголосовать за Пупсикова</button>
+        <p class="vote-message" id="message2">Проголосовано успешно!</p>
+    </div>
+
+    <div class="candidate candidate3">
+        <img src="https://i.imgur.com/qYNl31U.png" alt="Кандидат 3" width="150">
+        <h4>Жаренков Ваджайна Лопстерович</h4>
+        <p style="font-size: 14px;">Я честный, радужный и законопослушный житель этой земли. Моя партия обещает легализовать продажу чипсов со вкусом детей и секс двух мужиков.</p>
+        <input type="radio" name="candidate" id="vote3" onclick="selectCandidate('3')">
+        <button class="vote-button" onclick="submitVote()">Проголосовать за Жаренкова</button>
+        <p class="vote-message" id="message3">Проголосовано успешно!</p>
+    </div>
+
+    <div class="candidate candidate4">
+        <img src="https://i.imgur.com/K7Z4e6w.png" alt="Кандидат 4" width="150">
+        <h4>Кошаков Решка Донатерович</h4>
+        <p style="font-size: 14px;">Лузерскорский смотритель за донатами, чатерский деятель, 45-й в списке зрителей. Кандидат международных пиздюлей от Насти привлох. Лозунг "голосуй за нас, дадим тебе квас". Выдвиженец от Партии Донатеров.</p>
+        <input type="radio" name="candidate" id="vote4" onclick="selectCandidate('4')">
+        <button class="vote-button" onclick="submitVote()">Проголосовать за Кошакова</button>
+        <p class="vote-message" id="message4">Проголосовано успешно!</p>
+    </div>
+
+    <div class="candidate candidate5">
+        <img src="https://i.imgur.com/NbggeZC.png" alt="Кандидат 5" width="150">
+        <h4>Герасимов Герастор Аласторович</h4>
+        <p style="font-size: 14px;">Потомок герасима, утопил муму, поржал и убежал на одной ноге. "......................." - его известная цитата, объясняющая причину, почему утопил муму. Выдвиженец от партии ]Хазбиновики.</p>
+        <input type="radio" name="candidate" id="vote5" onclick="selectCandidate('5')">
+        <button class="vote-button" onclick="submitVote()">Проголосовать за Герасимова</button>
+        <p class="vote-message" id="message5">Проголосовано успешно!</p>
+    </div>
+</div>
+
+<div class="footer">
+    Официальный метод голосования на момент 2024 в телеграм канале Лопстер, @ЛопсУслуги 2024
+</div>
+
+<script>
+    let selectedCandidate = null;
+
+    function selectCandidate(candidate) {
+        selectedCandidate = candidate;
+    }
+
+    function submitVote() {
+        if (selectedCandidate) {
+            // Перенаправление на указанный сайт
+            window.location.href = "https://imgur.com/5CU7YZR";
+        } else {
+            alert("Пожалуйста, выберите кандидата перед голосованием.");
+        }
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
+
